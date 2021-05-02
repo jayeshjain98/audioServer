@@ -1,0 +1,156 @@
+{
+  "oneOf": [
+    {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Song",
+      "type": "object",
+      "properties": {
+        "audioFileType": {
+          "const": "Song"
+        },
+        "audioMetadata": {
+          "type": "object",
+          "properties": {
+            "song_upload_time": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "song_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "song_name": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1
+            },
+            "song_duration": {
+              "type": "integer",
+              "exclusiveMinimum": 0
+            }
+          },
+          "required": [
+            "song_duration",
+            "song_name",
+            "song_id",
+            "song_upload_time"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "audioFileType"
+      ]
+    },
+    {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Podcast",
+      "type": "object",
+      "properties": {
+        "audioFileType": {
+          "const": "Podcast"
+        },
+        "audioMetadata": {
+          "type": "object",
+          "properties": {
+            "podcast_upload_time": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "podcast_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "podcast_name": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1
+            },
+            "podcast_duration": {
+              "type": "integer",
+              "exclusiveMinimum": 0
+            },
+            "host": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1
+            },
+            "participants": {
+              "type": "array",
+              "maxItems": 10,
+              "contains": {
+                "type": "string",
+                "maxLength": 100
+              }
+            }
+          },
+          "required": [
+            "podcast_duration",
+            "podcast_name",
+            "podcast_id",
+            "podcast_upload_time",
+            "host"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "audioFileType"
+      ]
+    },
+    {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Audiobook",
+      "type": "object",
+      "properties": {
+        "audioFileType": {
+          "const": "Audiobook"
+        },
+        "audioMetadata": {
+          "type": "object",
+          "properties": {
+            "audiobook_upload_time": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "audiobook_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "audiobook_title": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1
+            },
+            "audiobook_duration": {
+              "type": "integer",
+              "exclusiveMinimum": 0
+            },
+            "author": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1
+            },
+            "narrator": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1
+            }
+          },
+          "required": [
+            "narrator",
+            "author",
+            "audiobook_duration",
+            "audiobook_upload_time",
+            "audiobook_title",
+            "audiobook_id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "audioFileType"
+      ]
+    }
+  ]
+}
