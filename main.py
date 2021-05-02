@@ -35,9 +35,12 @@
 #   }
 # }
 import falcon
-from services.audio_manager import save_audio
+from services.audio_manager import save_audio, delete_audio
 
 app = falcon.API()
 
 write_handler = save_audio()
+delete_handler = delete_audio()
+
 app.add_route("/savefile",write_handler)
+app.add_route("/{audioFileType}/{audioFileID:uuid}",delete_handler)
