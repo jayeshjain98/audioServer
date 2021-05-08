@@ -14,7 +14,7 @@ python3 database_services/schema/databaseschema.py
 # serve the api
 This shell command will serve the api on your localhost over port 8000
 ```bash
-gunicorn --workers 1 --timeout 60 -b 0.0.0.0:8000 app:app
+gunicorn --workers 1 --timeout 60 -b 0.0.0.0:8000 main:app
 ```
 # request url and format
 The api takes request at four end points in below format
