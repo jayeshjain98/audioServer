@@ -22,8 +22,9 @@ The api takes request at four end points in below format
 * Delete -http://127.0.0.1:8000/deletefile/{audioFileType}/{audioFileID}
 * Update -http://127.0.0.1:8000/updatefile/{audioFileType}/{audioFileID}
 * Get -http://127.0.0.1:8000/getfile/{audioFileType}/{audioFileID} or http://127.0.0.1:8000/getfile/{audioFileType}
+
 The format for create and update api request is as follows
-## for Song:
+* for Song:
 ```json
 {
   "audioFileType": "Song",
@@ -35,7 +36,7 @@ The format for create and update api request is as follows
   }
 }
 ```
-## for Podcast:
+* for Podcast:
 ```json
 {
   "audioFileType": "Podcast",
@@ -51,7 +52,7 @@ The format for create and update api request is as follows
   }
 }
 ```
-## for Audiobook:
+* for Audiobook:
 ```json
 {
   "audioFileType": "Audiobook",
