@@ -39,7 +39,6 @@ class dbUtil(object):
                 query = (query %parameters)
             else:
                 query = db_query_mapper[operationname][filetype]
-            
             result = operation[operationname](parameters, query)
             return result
         except Exception as error :

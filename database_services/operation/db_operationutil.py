@@ -10,6 +10,9 @@ def get(parameters,query):
             
             cur.execute(query)
             conn.commit()
+            count = cur.rowcount
+            if count == 0:
+                raise psycopg2.DatabaseError()
             filenames = [row[0] for row in cur.fetchall()]
             cur.close()
         db_connection_pool.putconn(conn)
@@ -34,10 +37,9 @@ def insert(parameters,query):
             conn.commit()
         db_connection_pool.putconn(conn)
 
-    except Exception as error:
+    except psycopg2.DatabaseError as error:
         db_connection_pool.putconn(conn)
         raise error
-        
 
             
 def delete(parameters,query):
@@ -48,7 +50,6 @@ def delete(parameters,query):
         with conn.cursor() as cur:
             query = (query %parameters)
             cur.execute(query)
-            count = cur.rowcount
             conn.commit()
         db_connection_pool.putconn(conn)
 
@@ -65,6 +66,8 @@ def update(parameters,query):
             query = (query %parameters)
             cur.execute(query)
             count = cur.rowcount
+            if count == 0:
+                raise psycopg2.DatabaseError()
             conn.commit()
         db_connection_pool.putconn(conn)
 
