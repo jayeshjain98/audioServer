@@ -23,6 +23,10 @@ The api takes request at four end points in below format
 * Update -http://127.0.0.1:8000/updatefile/{audioFileType}/{audioFileID}
 * Get -http://127.0.0.1:8000/getfile/{audioFileType}/{audioFileID} or http://127.0.0.1:8000/getfile/{audioFileType}
 
+Where {audioFileType} can take any values from ['Song', 'Podcast', 'Audiobook']
+
+and {audioFileID} is of type uuid only.
+
 The format for create and update api request is as follows
 * for Song:
 ```json
