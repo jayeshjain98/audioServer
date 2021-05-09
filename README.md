@@ -70,3 +70,11 @@ The format for create and update api request is as follows
   }
 }
 ```
+For running test cases on api first serve the api 
+```bash
+gunicorn --workers 1 --timeout 60 -b 0.0.0.0:8000 main:app
+```
+then run pytest for the tests directory like below
+```bash
+pytest tests
+```
