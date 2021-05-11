@@ -44,7 +44,6 @@ def create_tables():
         try:
             cur.execute("DROP TABLE IF EXISTS music_files;")
             cur.execute("DROP TABLE IF EXISTS podcast_records;")
-            cur.execute("DROP TABLE IF EXISTS podcast_participants;")
             cur.execute("DROP TABLE IF EXISTS audiobook_library;")
 
             cur.execute("CREATE TABLE music_files ( song_id VARCHAR(40) NOT NULL, song_name VARCHAR(100) NOT NULL, song_duration INT NOT NULL, upload_time VARCHAR(30) NOT NULL, PRIMARY KEY(song_id));")
